@@ -29,6 +29,19 @@ updated_at: null          # ISO date. Set it when you first write an entry.
 # even if the entry it names is later superseded, corrected or found to be wrong.
 # Renumbering is what turns a citation into a lie.
 #
+# THE DIVISION THAT MAKES THAT POSSIBLE, since Chat also writes about ids:
+# CHAT'S SPECIFICATIONS REFER TO THE KIND, NEVER TO A NUMBER. A specification
+# says "record this as a foreclosure, at altitude fw" — it does not say "record
+# this as fc-014". CODE ALLOCATES THE NUMBER AT WRITE TIME, because Code is the
+# station holding the file and can see what the last one was.
+#
+# That is not etiquette. It is what keeps allocation serialised through a single
+# writer: a number chosen by the station that cannot see the ledger is a number
+# chosen against a stale view of it, and two specifications drafted the same
+# afternoon would choose the same one. It is also THE ASSUMPTION THAT BREAKS
+# FIRST if a second writing agent appears — before any of the merge machinery
+# below is reached, two Codes writing at once collide on the next number.
+#
 # THE ASSUMPTION THAT MAKES IT WORK, NAMED SO YOU CAN CHECK IT AGAINST YOUR OWN
 # SETUP: in the instance this template came from, ONE agent wrote the ledger and
 # ONE human merged every change, so allocation was effectively serialised and two
