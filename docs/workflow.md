@@ -26,8 +26,10 @@ One task travels a fixed circuit. Each station does one job and hands on.
 **User** holds the goal and the authority. Decides what matters, adjudicates
 escalations, and is the only station that can change what the project is for.
 
-**Chat** writes specifications and reviews results. It never edits the
-repository.
+**Chat** writes specifications and reviews results. It **never edits this
+repository** — it works from a separate checkout of its own, which it reads and
+runs but does not change. See *Chat clones and verifies in-repo* below; the two
+statements are not in tension, and the seat they describe is the reviewer's.
 
 **User relays.** The specification reaches Code through the User, verbatim. This
 is not a formality: it is the User's read of the spec before any work is spent
@@ -141,10 +143,34 @@ disappears. That file is the record. It is short and it is a checklist.
 Chat does not review from excerpts, transcripts, diffs, or grep output. It
 clones the branch and checks the claim against the files.
 
+**The clone is a separate checkout, outside this working tree.** It is thrown
+away after the review. That is the whole of the apparent contradiction between
+"Chat never edits the repository" and "Chat clones and verifies in-repo":
+**Chat holds the files without holding write access**, which is exactly the
+reviewer's seat — it can check everything and change nothing. A Chat session
+that edits files has left that seat, and the review it then gives is of its own
+work.
+
+**Reading is not the limit; changing the record is.** Chat may check out any
+commit, install the project, run the suite, run an analysis script, and compare
+across revisions — the review in the note below did exactly that. What Chat does
+not do is modify tracked files, commit, push, or write `docs/state.yaml`. Build
+output and caches in a throwaway clone are not the repository.
+
 A reviewer working from excerpts can only check that the report is internally
 consistent, which is the one thing a wrong report is most likely to be. Numbers
 arriving in a report are **hypotheses with pointers** until read at their source.
 Line references are checked by opening the line.
+
+> *Why this needs saying rather than assuming:* the predecessor's constitution
+> asserted the opposite as a structural fact — *"Chat holds excerpts by
+> construction, so 'Chat verifies Code's numbers' would rot into a formality"* —
+> and on that premise gave Chat non-ratification instead of verification
+> (`visgraf/active-stereo`, `CLAUDE.md` §5). **The premise was false.** Chat can
+> clone; in the instance it did, ran the suite across two commits in four
+> configurations, and found a discrepancy the affected document had been
+> rewritten to prevent. The seat existed the whole time and the workflow had
+> talked its reviewer out of occupying it.
 
 **And check the claim, not the reference.** An id that resolves is not an id
 that agrees.
@@ -194,6 +220,10 @@ that is **not yet wrong**.
 
 1. **A stage boundary.** Before the work commits to the next stage, one pass
    arguing that the stage just finished established less than it appears to.
+   *Note that stages live in `docs/state.yaml`'s `plan` half, which is empty in a
+   new project — so this trigger does not fire until a plan exists, and trigger 2
+   is the only live one until then. That is the right way round: trigger 2 is the
+   more important of the two anyway.*
 2. **A run of clean iterations.** Three or four in a row with no escalation, no
    retry, and no falsifier firing. *This is the counterintuitive trigger and it
    is the one that matters.* A run of failures gets scrutiny for free — every

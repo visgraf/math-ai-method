@@ -3,6 +3,12 @@
 Read at the start of every session. Normative. If a request conflicts with this
 file, say so rather than quietly deviating.
 
+**Who this governs.** The session reading this holds write access to this working
+tree, and is therefore **Code** — the station in `docs/workflow.md` that does the
+work in the repository. Chat does not read this file as instructions to itself.
+Chat reviews from a **separate checkout that it never writes**, and its
+obligations live in `docs/workflow.md`, not here.
+
 ## What this is
 
 **This is a research project, not a software project.** In software the
