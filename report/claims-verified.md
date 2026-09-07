@@ -95,6 +95,31 @@ off:
 33×" against an exact 33.5× is true; "at least 34×" is not. Rounding *down* is
 the safe direction for a lower bound, and *up* for an upper one.
 
+### This check has fired once, on this template's own prose
+
+Worth recording, because it is the only place in this repository where a rule is
+shown catching the failure it was written for — and it caught it in the document
+that ships the rule.
+
+`README.md` described the source instance as having **fourteen** experiments. It
+has thirteen: the count had been taken from the highest identifier (`exp014`)
+rather than from the set, and `exp006` was specified and deliberately not run.
+
+**The figure was in two places.** It had been repeated in a test docstring in
+`tests/test_scaffold.py`. A per-passage reading would have corrected the
+`README` line and left the other standing — which is exactly the structural
+blind spot this section describes, occurring in the paragraph about *this
+template's own provenance*, in a template whose stated purpose is preventing
+claims that are well-formed, plausible and wrong.
+
+**The tree-wide grep is what found the second one.** Not a re-reading. Run over
+every figure asserted about the instance, it also confirmed the rest were
+consistent across their occurrences — 45 of 96 nulls, ten experiments, five
+days, eleven fields — and turned up two loose counts in illustrative prose,
+one of which was sitting inside the new entry about counts taken loosely.
+
+The full defect and its check are `docs/spec-defects.md` §3.
+
 ---
 
 ## The count

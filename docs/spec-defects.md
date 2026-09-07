@@ -114,7 +114,9 @@ Two corollaries worth the same line:
   repeated-claim check in `report/claims-verified.md`, and this defect is an
   instance of it outside the report: verification runs per passage, repetition
   crosses passages, and prose about the record is not exempt from the rules the
-  record lives under.
+  record lives under. **The tree-wide grep is what found the second occurrence**,
+  not a re-reading — recorded as that check's worked example under *"This check
+  has fired once, on this template's own prose"*.
 
 **Where this one came from is part of the entry.** It was written by Chat, in a
 specification, in a template whose stated purpose is preventing exactly this
