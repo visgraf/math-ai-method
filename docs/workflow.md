@@ -66,6 +66,34 @@ you want them used, **trigger them** — see the spike trigger in
 `spikes/README.md`, and note that it exists precisely because "we added the
 directory" turned out not to be enough.
 
+## What a specification is
+
+The loop's central artifact, and **the only one that leaves no trace in the
+repository.** Chat writes it, the User relays it verbatim, Code executes it — and
+then it is gone. In the instance this template came from, no specification was
+ever committed; `docs/state.yaml`'s `falsifier_verdicts` block exists precisely
+to compensate, so that at least the *falsifier* survives in the tree after the
+specification that carried it has evaporated.
+
+So it has no file and no template here. It has a required shape, and this is it:
+
+| | |
+|---|---|
+| **1. The assumed repository state** | Branch, commit, what is tracked, what does not exist yet, the SHAs of any reference checkout. **Code's first action is to verify these and reject the task if any is false.** |
+| **2. The goal** | What this task is for, in a sentence, in terms of what it would move. |
+| **3. The work** | What to do. Clause by clause. |
+| **4. The falsifier** | What result would mean *this specification asked the wrong question*. Not a success criterion. |
+| **5. A finish condition per clause** | For every clause: what result makes it finished. A clause that cannot be given one is bounded or split out. |
+| **6. The end state of the working tree** | Uncommitted; committed; committed and pushed; or a pull request opened. Naming a branch does not say. |
+
+Items 5 and 6 are `docs/spec-defects.md`'s two entries, in the form of a
+checklist. Items 1 and 4 are the two rules below. **Re-read that file before
+writing one** — it is where the ways these have actually gone wrong are kept.
+
+**Write it so that Code can reject it.** That is the test for whether a
+specification is finished: not "is it clear enough to follow" but "does it state
+enough that a reader who disagrees can point at the sentence that is wrong."
+
 ## The rules
 
 ### Every specification carries a falsifier
