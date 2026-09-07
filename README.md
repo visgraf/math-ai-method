@@ -102,6 +102,10 @@ went wrong in it, and each is marked in the file that carries it:
 5. **The repeated-claim check** (`report/claims-verified.md`): grep for repeated
    figures across sections, because verification runs per passage and repetition
    crosses passages.
+   **This one has fired**, on the provenance paragraph of this README — the only
+   place in the template where a rule is caught working rather than argued for.
+   Read it under *"This check has fired once, on this template's own prose"* in
+   [`report/claims-verified.md`](report/claims-verified.md).
 
 And one required field: **a stopping rule** in `docs/state.yaml`, because the
 instance ran five days without one after being told in week one.
