@@ -109,7 +109,7 @@ def test_every_experiment_has_a_preregistration() -> None:
     """A preregistration is written and committed BEFORE the runner exists.
 
     NOT CARRIED FROM THE SOURCE INSTANCE. That project wrote a preregistration
-    first for all fourteen of its experiments and never enforced it in CI, so
+    first for all thirteen of its experiments and never enforced it in CI, so
     this guard is an addition and has not been exercised by anything. It is here
     because the practice was exercised heavily and the enforcement is cheap;
     delete it if it gets in the way, and record why.

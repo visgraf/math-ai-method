@@ -81,6 +81,50 @@ bought a round trip.
 
 ---
 
+## 3. A count taken from the highest identifier rather than from the set
+
+**The defect.** A specification described the source instance as having
+*"fourteen experiments"*. It has **thirteen**: `exp001`–`exp005` and
+`exp007`–`exp014`. There is no `exp006` — it was specified and deliberately not
+run, recorded as an amendment. The count was read off the highest id.
+
+**What it cost.** The wrong number shipped in `README.md`, in the paragraph about
+this template's own provenance, **and propagated**: it was picked up and repeated
+in a test docstring, so correcting the source alone would have left it standing.
+One wrong figure became two claims.
+
+**Why it is hard to see when writing.** `exp014` is right there and it is
+correct — it is the highest id, and ids are allocated sequentially and never
+reused, so the sequence *looks* dense. The gap is invisible from the id alone;
+it is visible only in the directory listing, and the reason for it is in an
+amendment elsewhere in the ledger. Nothing about `exp014` announces that it is the
+fourteenth *label* and the thirteenth *thing*.
+
+**The check.** **Count the set, not the ceiling.** `ls`, `wc -l`, a length — some
+operation over the members. An identifier is a name, not a tally, and a sequence
+with a deliberate gap in it is exactly the sequence you will be tempted to count
+by reading its last element.
+
+Two corollaries worth the same line:
+
+- **A deliberate absence is not a hole to be smoothed over.** The gap here is a
+  *record* — a step specified and consciously not taken. A count that erases it
+  erases the decision too.
+- **When you correct a repeated figure, correct every occurrence.** That is the
+  repeated-claim check in `report/claims-verified.md`, and this defect is an
+  instance of it outside the report: verification runs per passage, repetition
+  crosses passages, and prose about the record is not exempt from the rules the
+  record lives under. **The tree-wide grep is what found the second occurrence**,
+  not a re-reading — recorded as that check's worked example under *"This check
+  has fired once, on this template's own prose"*.
+
+**Where this one came from is part of the entry.** It was written by Chat, in a
+specification, in a template whose stated purpose is preventing exactly this
+class of error — a claim that is well-formed, plausible, and off by one because
+nobody counted. The station that writes the rules is not outside them.
+
+---
+
 ## The general shape
 
 Both entries above are the same defect wearing different clothes: **the

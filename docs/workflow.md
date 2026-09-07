@@ -50,7 +50,8 @@ measured, and what it could not do.
 
 **Cowork gets a role stated here and an obituary in the same box.** What it is
 for is real: the loop above moves one task at a time through one repository, and
-nothing in it does the work that spans twelve experiments at once — a sweep of
+nothing in it does the work that spans a whole project's experiments at once —
+a sweep of
 what the field already knows about the question, a briefing that reconciles five
 findings files, a synthesis that is not itself a result and so has no station to
 be verified at. That is Cowork's role. In the instance this template came from

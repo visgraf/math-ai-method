@@ -29,7 +29,7 @@ right up until the day it would have saved them.
 
 This is extracted from **one instance**: one researcher, one field, one project,
 **five days** — [`visgraf/bio-3d-vision`](https://github.com/visgraf/bio-3d-vision)
-at commit `5f8e39f`. Fourteen experiments, a decision ledger, a measurement
+at commit `5f8e39f`. Thirteen experiments, a decision ledger, a measurement
 ledger, a technical report and a verification pass over its claims.
 
 **One instance is not a validated methodology, and this document does not claim
