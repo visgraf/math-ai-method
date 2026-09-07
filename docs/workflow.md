@@ -28,8 +28,8 @@ escalations, and is the only station that can change what the project is for.
 
 **Chat** writes specifications and reviews results. It **never edits this
 repository** — it works from a separate checkout of its own, which it reads and
-never writes. See *Chat clones and verifies in-repo* below; the two statements
-are not in tension, and the seat they describe is the reviewer's.
+runs but does not change. See *Chat clones and verifies in-repo* below; the two
+statements are not in tension, and the seat they describe is the reviewer's.
 
 **User relays.** The specification reaches Code through the User, verbatim. This
 is not a formality: it is the User's read of the spec before any work is spent
@@ -143,13 +143,19 @@ disappears. That file is the record. It is short and it is a checklist.
 Chat does not review from excerpts, transcripts, diffs, or grep output. It
 clones the branch and checks the claim against the files.
 
-**The clone is a separate checkout, outside this working tree.** Chat reads it
-and never writes it, and it is thrown away after the review. That is the whole
-of the apparent contradiction between "Chat never edits the repository" and
-"Chat clones and verifies in-repo": **Chat holds the files without holding write
-access**, which is exactly the reviewer's seat — it can check everything and
-change nothing. A Chat session that edits files has left that seat, and the
-review it then gives is of its own work.
+**The clone is a separate checkout, outside this working tree.** It is thrown
+away after the review. That is the whole of the apparent contradiction between
+"Chat never edits the repository" and "Chat clones and verifies in-repo":
+**Chat holds the files without holding write access**, which is exactly the
+reviewer's seat — it can check everything and change nothing. A Chat session
+that edits files has left that seat, and the review it then gives is of its own
+work.
+
+**Reading is not the limit; changing the record is.** Chat may check out any
+commit, install the project, run the suite, run an analysis script, and compare
+across revisions — the review in the note below did exactly that. What Chat does
+not do is modify tracked files, commit, push, or write `docs/state.yaml`. Build
+output and caches in a throwaway clone are not the repository.
 
 A reviewer working from excerpts can only check that the report is internally
 consistent, which is the one thing a wrong report is most likely to be. Numbers
