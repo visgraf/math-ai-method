@@ -15,6 +15,36 @@
 schema_version: 1
 updated_at: null          # ISO date. Set it when you first write an entry.
 
+# ------------------------------------------------------------------------------
+# HOW IDS ARE ALLOCATED
+#
+# Seven id spaces are in use across this file and
+# docs/inherited-measurements.yaml: fc- (foreclosures), od- (open decisions),
+# fv- (falsifier verdicts), cn- (constraints), am- (amendments), met- (carried
+# methods), gap- (recorded absences), plus one project prefix for measurements.
+#
+# THE RULE: sequential per kind, allocated by Code at the moment the entry is
+# written, NEVER REUSED AND NEVER RENUMBERED. An id that has been cited anywhere
+# — a findings file, a report, a commit message, another entry — is permanent
+# even if the entry it names is later superseded, corrected or found to be wrong.
+# Renumbering is what turns a citation into a lie.
+#
+# THE ASSUMPTION THAT MAKES IT WORK, NAMED SO YOU CAN CHECK IT AGAINST YOUR OWN
+# SETUP: in the instance this template came from, ONE agent wrote the ledger and
+# ONE human merged every change, so allocation was effectively serialised and two
+# branches could not claim fc-014 at the same time. Nothing enforced that; the
+# shape of the project did.
+#
+# THIS FILE IS APPEND-MOSTLY AND IT IS THE CHANNEL OF RECORD, so a collision here
+# is a merge conflict in the one place the project cannot afford one. If you will
+# have more than one writing agent, or long-lived parallel branches, DECIDE HOW
+# IDS ARE ALLOCATED BEFORE YOU HAVE TWO BRANCHES OPEN — not after the first
+# conflict. Workable answers include a reserved range per branch, allocation at
+# merge time rather than write time, or ids that are not sequential at all
+# (a short hash, a date-stamp). Each costs something; pick deliberately and
+# record the choice as a foreclosure.
+# ------------------------------------------------------------------------------
+
 # PROVENANCE, NOT A STALENESS TEST. This names the repository state the file
 # describes — the same role `measured_at_sha` plays on a measurement. It
 # NECESSARILY LAGS the commit that carries it, because no commit can name the
@@ -259,6 +289,41 @@ open_decisions: []
 # Options this repository has closed, and what reopening one would cost. Recorded
 # so that a later session can tell "we decided against this" from "nobody thought
 # of it" — the two look identical in a codebase and are not the same thing.
+#
+# HOW TO REOPEN ONE: ANNOTATE, NEVER REVERSE.
+#
+# `cost_to_reopen` names a price; this names the procedure. Where new evidence
+# bears on a closed decision, ANNOTATE THE ENTRY with what was found and what a
+# PRE-REGISTERED RE-TEST WOULD NEED, and LEAVE THE CLOSURE STANDING until that
+# test is run.
+#
+# WHY: a foreclosure reversed on a re-analysis that did not pre-register the
+# reversal is the same defect as a foreclosure closed on evidence that does not
+# bear on it. Both substitute a number that was not asked for in advance for one
+# that was. The asymmetry is deliberate — closing needs a pre-registered result,
+# and so does re-opening.
+#
+# TWO OBSERVED FORMS, both from the instance:
+#
+#   AMENDED IN PLACE, when an entry overstated what had been measured. A
+#   falsifier verdict was first written as `did_not_fire / ADDITIVE`; the
+#   measurement did not bear on the falsifier at all — it priced building a
+#   component, where the falsifier asked whether an interface was invasive — and
+#   it was corrected in place to `DEFERRED / UNANSWERED`, with an `amended` field
+#   recording what the original said. A foreclosure carrying the same
+#   overstatement was corrected in the same commit. NOT A REVERSAL: nothing was
+#   decided differently, a claim was withdrawn to what the evidence supported.
+#
+#   ANNOTATED, when a later re-analysis moved a comparison an entry rested on.
+#   A re-analysis that moved eleven comparisons annotated four foreclosures and
+#   reversed none — one stood and was strengthened, one gained a note on where
+#   its evidence comes from AND what a pre-registered re-test would need, two
+#   were untouched. Every closure stood.
+#
+# Both forms are additive. Neither deletes what was there, because the
+# disagreement between what was believed and what is now known is the
+# information — the same argument that keeps a superseded measurement in
+# docs/inherited-measurements.yaml instead of editing its value.
 # ------------------------------------------------------------------------------
 foreclosures: []
 # - id: fc-0NN

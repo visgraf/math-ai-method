@@ -5,6 +5,21 @@
 % the pass that checks it back against source, and read that file's header
 % BEFORE writing prose rather than after.
 %
+% PROSE IS DRAFTED IN MARKDOWN, COMMITTED, AND TYPESET SEPARATELY, WITH BOTH
+% COMMITTED SO THE TRANSLATION IS DIFFABLE. Keep draft.md beside this file.
+%
+% This is what made claim verification possible in the instance this template
+% came from. Two things follow from it, and they are the reason it is a practice
+% rather than a preference:
+%
+%   1. Claims are checked against the record while the prose is still CHEAP TO
+%      MOVE. A paragraph that has to be re-typeset to be corrected is a paragraph
+%      whose correction gets argued about.
+%   2. THE DIFF BETWEEN DRAFT AND TYPESET OUTPUT IS WHERE A MANGLED NUMBER SHOWS.
+%      A figure that changes in translation -- a dropped qualifier, a transposed
+%      digit, a scope clause that did not survive being turned into a sentence --
+%      is invisible in either document alone and obvious between them.
+%
 % Build:  make -C report        (or: latexmk -pdf main.tex, from this directory)
 %
 % IT COMPILES AS SHIPPED, deliberately: a scaffold whose build is broken on day

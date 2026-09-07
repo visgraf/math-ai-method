@@ -97,7 +97,10 @@ schema:
 #
 # Ids are stable and never renumbered. Use one prefix per project so that a
 # citation is self-locating in a report — the instance used `bio-` for its own
-# and `as-` for one predecessor's.
+# and `as-` for one predecessor's. The `met-` and `gap-` spaces in this file are
+# allocated the same way. See "HOW IDS ARE ALLOCATED" at the top of
+# docs/state.yaml, which governs every id space in the record, and names the
+# assumption that makes sequential allocation safe.
 # ------------------------------------------------------------------------------
 values: []
 # - id: <prefix>-001
