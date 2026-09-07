@@ -50,12 +50,24 @@ first time it is *used*, not the first time someone doubts it.
 > what everyone read it as testing — 45 of 96 null results read differently
 > under the bar it was assumed to be.
 
-**ADRs are written after the thing they decide has been tried.** An ADR records
+**A decision is recorded after the thing it decides has been tried.** It records
 what was learned by doing it, not what was planned before. If it has not been
-tried, it is a question — put it in `docs/state.yaml` under open decisions. An
-ADR names the test that pins it; without one it is an intention.
+tried, it is a question — put it in `docs/state.yaml` under `open_decisions`. If
+it has been tried and settled, it is a **foreclosure**: `docs/state.yaml` under
+`foreclosures`, with its evidence, its scope, and what reopening it would cost.
 > *Why:* a decision recorded before the attempt is a prediction wearing the
 > costume of a finding, and later sessions cannot tell the two apart.
+
+> **On ADRs, and why this template does not ship a place for them.** The rule
+> above was inherited as an ADR rule — *an ADR names the test that pins it;
+> without one it is an intention.* The instance this template came from carried
+> that rule, cited seventeen ADRs, and **wrote none**: all seventeen belong to
+> its predecessors, it has no `docs/adr/`, and every decision it took itself went
+> into the foreclosure ledger instead. The ledger won because a foreclosure has
+> fields a reviewer can check — evidence, scope, cost to reopen — and a document
+> has paragraphs. Recorded rather than quietly dropped, so that nobody
+> reintroduces the directory believing it was tested here. If you want ADRs, add
+> `docs/adr/` and say what they hold that a foreclosure entry does not.
 
 **Every iteration regenerates the same artifact beside the previous one's** —
 same inputs, same seed, written next to its predecessor rather than over it. You
@@ -65,7 +77,8 @@ put beside the last is not an iteration.
 > can see is a difference nobody reports.
 
 **`spikes/` is where you try things.** Git-tracked, and that is the whole
-ceremony: no ADR, no findings entry, no definition of done, no tests required.
+ceremony: no decision record, no findings entry, no definition of done, and
+no tests required.
 Nothing in `src/` or `experiments/` may import from it, and CI enforces that. A
 spike's only permitted output is **a decision or a deletion** — write what you
 learned into `docs/state.yaml` and delete it, or delete it. See
