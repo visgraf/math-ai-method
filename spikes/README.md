@@ -36,10 +36,10 @@ visible from outside the head of the person doing it.
 cannot be pointed at, and the whole reason this directory exists is so that "I
 tried that, here is what happened" is a thing you can show.
 
-**No ADR. No findings entry. No definition of done.** None of them apply here.
-Do not write an ADR *about* a spike — an ADR is written after the thing it
-decides has been tried, so the spike is what you do *before* the ADR, and the ADR
-comes after if the answer was worth keeping.
+**No decision record. No findings entry. No definition of done.** None of them
+apply here. Do not write a foreclosure *about* a spike — a decision is recorded
+after the thing it decides has been tried, so the spike is what you do *before*
+the record, and the record comes after if the answer was worth keeping.
 
 **No tests required.** Write them if they help you; nothing checks.
 
