@@ -1,6 +1,8 @@
 # Specification defects
 
 **Re-read this before writing a specification.** It is a list, not an essay.
+What a specification must *contain* is in `docs/workflow.md`; this is how the
+ones written here have gone wrong.
 
 Decisions get foreclosures. Measurements get provenance. A badly-written
 specification gets nothing — it costs an iteration, the iteration gets fixed, and
